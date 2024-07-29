@@ -13,7 +13,7 @@ public class Credential {
     @Id
     @GeneratedValue
     @Column(name = "ROWID_CREDENTIAL")
-    private Long rowid;
+    private Long rowId;
 
     @CreationTimestamp
     @Column(name = "CREATE_DATE", updatable = false)
@@ -36,42 +36,50 @@ public class Credential {
     @JoinColumn(name = "PLT_CODE", referencedColumnName = "PLT_CODE", nullable = false)
     private Platform platform;
 
-    public Credential(String username, String password, Platform platform) {
-        this.username = username;
-        this.password = password;
-        this.platform = platform;
-    }
+    public Credential() {}
 
-    public Credential() {
-
-    }
-
-    public Long getRowid() {
-        return rowid;
+    public Long getRowId() {
+        return rowId;
     }
 
     public String getUsername() {
         return username;
     }
 
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     public String getPassword() {
         return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Platform getPlatform() {
         return platform;
     }
 
+    public void setPlatform(Platform platform) {
+        this.platform = platform;
+    }
+
     public Instant getCreatedAt() {
         return createdAt;
+    }
+
+    public void setCreatedAt(Instant createdAt) {
+        this.createdAt = createdAt;
     }
 
     public Instant getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setPlatform(Platform platform) {
-        this.platform = platform;
+    public void setUpdatedAt(Instant updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
     public String getOwner() {
