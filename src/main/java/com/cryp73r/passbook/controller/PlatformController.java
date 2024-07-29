@@ -17,7 +17,7 @@ public class PlatformController {
     @Autowired
     PlatformRepository platformRepository;
 
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMINISTRATOR', 'SUPER_USER')")
     @PostMapping(value = "/platform", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public Platform addPlatform(@RequestBody Platform platform) {
         return platformRepository.save(platform);
